@@ -5,7 +5,7 @@
 //+------------------------------------------------------------------+
 #property copyright "Qianye"
 #property link      "https://www.mql5.com"
-#property version   "2.03"
+#property version   "2.04"
 #property strict
 //--- input parameters
 input int      max_position;
@@ -444,7 +444,7 @@ public:
 private:
    string GenerateMessage() {
       return "total: " + (string)current_total + 
-         " / diff: " + (string)(previous_total - current_total) +
+         " / diff: " + (string)(current_total - previous_total) +
          " / margin: " + (string)free_margin +
          " / ratio: " + DoubleToStr(margin_ratio, 1) + "%" +
          " / orders: " + (string)position;
