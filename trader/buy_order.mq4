@@ -19,7 +19,7 @@ public:
       double profit_limit = GetProfitLimitRate();
       int identifier = GetOrderIdentifier();
       
-      int ticket_no = OrderSend(Symbol(), OP_BUY, DEFAULT_LOT, Ask, DEFAULT_SLIPPAGE, stop_loss, profit_limit, NULL, identifier, 0, clrRed);
+      int ticket_no = OrderSend(Symbol(), OP_BUY, DEFAULT_LOT, Ask, DEFAULT_SLIPPAGE, stop_loss, profit_limit, (string)identifier, identifier, 0, clrRed);
       
       return ticket_no == -1 ? OrderResultType::FAILURE : OrderResultType::SUCCESS;
    }

@@ -20,12 +20,12 @@ int OnInit()
   {
     
    if (IsStepOutOfRange(STEP)) {
-      Alert("STEP shoud be between 1 and 99.");
+      Alert("STEP shoud be positive.");
       return(INIT_PARAMETERS_INCORRECT);
    }
    
    if (IsStepOutOfRange(STOP_LOSS_STEP)) {
-      Alert("STOP_LOSS_STEP shoud be between 1 and 99.");
+      Alert("STOP_LOSS_STEP shoud be positive.");
       return(INIT_PARAMETERS_INCORRECT);
    }
    
