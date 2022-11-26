@@ -8,7 +8,9 @@
 
 //--- input parameters
 input double STEP;
-input double STOP_LOSS_STEP;
+input int MAX_POSITION;
+input double MIN_ACCEPTABLE_RATE;
+input double MAX_ACCEPTABLE_RATE;
 input int ORDER_IDENTIFIER_PREFIX;
 
 

@@ -25,6 +25,7 @@ public:
    }
    
    bool HasValidationError() {
+   
       if (ExistsSameBorderOrder()) {
          return true;
       }
@@ -32,15 +33,14 @@ public:
       if (IsProfitLimitOnOrBelowCurrentPrice()) {
          return true;
       }
-      
+            
       return false;
    }
       
 
 private:
    double GetStopLossRate() {
-      double border = current_border.GetValue();
-      return border - STOP_LOSS_STEP;
+      return MIN_ACCEPTABLE_RATE;
    }
 
    double GetProfitLimitRate() {

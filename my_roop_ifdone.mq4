@@ -24,8 +24,18 @@ int OnInit()
       return(INIT_PARAMETERS_INCORRECT);
    }
    
-   if (IsStepOutOfRange(STOP_LOSS_STEP)) {
-      Alert("STOP_LOSS_STEP shoud be positive.");
+   if (IsMaxPositionOutOfRange(MAX_POSITION)) {
+      Alert("MAX_POSITION shoud be between 1 and 99.");
+      return(INIT_PARAMETERS_INCORRECT);
+   }
+
+   if (IsRateOutOfRange(MIN_ACCEPTABLE_RATE)) {
+      Alert("MIN_ACCEPTABLE_RATE should be positive.");
+      return(INIT_PARAMETERS_INCORRECT);
+   }
+   
+   if (IsRateOutOfRange(MAX_ACCEPTABLE_RATE)) {
+      Alert("MAX_ACCEPTABLE_RATE should be positive.");
       return(INIT_PARAMETERS_INCORRECT);
    }
    
@@ -68,6 +78,10 @@ void OnTick()
       trade_aborted = true;
       Print("Trade is aborted due to loss cut");
       SendNotification("Trade is aborted due to loss cut");
+      return;
+   }
+   
+   if (OrderFinder::DoesExceedMaxPosition()) {
       return;
    }
    

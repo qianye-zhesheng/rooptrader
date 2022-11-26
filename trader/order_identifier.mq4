@@ -21,6 +21,10 @@ public:
       return ORDER_IDENTIFIER_PREFIX * TOTAL_DIGIT + order_type * ORDER_TYPE_DIGIT + GetIntegerBorder();
    }
    
+   static int DecodePrefix(int identifier) {
+      return (int)MathFloor(identifier / TOTAL_DIGIT);
+   }
+   
 
 private:
    int GetIntegerBorder() {
