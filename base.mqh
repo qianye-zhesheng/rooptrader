@@ -12,6 +12,10 @@ input int MAX_POSITION;
 input double MIN_ACCEPTABLE_RATE;
 input double MAX_ACCEPTABLE_RATE;
 input int ORDER_IDENTIFIER_PREFIX;
+input bool ORDER_LIMIT_ENABLED;
+input OrderType ORDER_LIMIT_TARGET;
+input int ACCEPTABLE_MAX_ORDER_DIFF;
+
 
 
 

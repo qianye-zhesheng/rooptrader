@@ -39,8 +39,18 @@ int OnInit()
       return(INIT_PARAMETERS_INCORRECT);
    }
    
+   if (IsInvalidRange(MIN_ACCEPTABLE_RATE, MAX_ACCEPTABLE_RATE)) {
+      Alert("MAX_ACCEPTABLE_RATE should be greater than MIN_ACCEPTABLE_RATE.");
+      return(INIT_PARAMETERS_INCORRECT);
+   }
+   
    if (IsPrefixOutOfRange(ORDER_IDENTIFIER_PREFIX)) {
       Alert("ORDER_IDENTIFIER_PREFIX shoud be between 1 and 99.");
+      return(INIT_PARAMETERS_INCORRECT);
+   }
+   
+   if (IsMaxOrderDiffOutOfRange(ACCEPTABLE_MAX_ORDER_DIFF)) {
+      Alert("ACCEPTABLE_MAX_ORDER_DIFF shoud be between 0 and " + (string)(MAX_POSITION -1) + ".");
       return(INIT_PARAMETERS_INCORRECT);
    }
    

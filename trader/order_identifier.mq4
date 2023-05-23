@@ -1,7 +1,6 @@
 #include "../base.mqh"
 
 #include "border.mq4"
-#include "order_type.mq4"
 
 
 class OrderIdentifier {
