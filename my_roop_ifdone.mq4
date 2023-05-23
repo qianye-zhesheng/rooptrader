@@ -76,8 +76,8 @@ void OnTick()
    
    if (circuit_braker.NeedsToStopTrade()) {
       trade_aborted = true;
-      Print("Trade is aborted due to loss cut");
-      SendNotification("Trade is aborted due to loss cut");
+      Print("Trade is aborted due to avoid loss cut");
+      SendNotification("Trade is aborted due to avoid loss cut");
       return;
    }
    

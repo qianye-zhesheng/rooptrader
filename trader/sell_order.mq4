@@ -39,7 +39,7 @@ public:
 
 private:
    double GetStopLossRate() {
-      return MAX_ACCEPTABLE_RATE;
+      return BLANK_STOP_LOSS_RATE;
    }
 
    double GetProfitLimitRate() {

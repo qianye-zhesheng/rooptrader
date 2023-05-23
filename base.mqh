@@ -1,6 +1,6 @@
 #property copyright "Qianye"
 #property link      "https://www.mql5.com"
-#property version   "3.00"
+#property version   "3.01"
 #property strict
 
 #include "common.mqh"
@@ -21,6 +21,7 @@ const int DEFAULT_SLIPPAGE = 3;
 const int REPORT_HOURS[] = {7, 12, 17, 21};
 const int ONE_HOUR = 3600;
 const double MIN_ACCEPTABLE_MARGIN_RATIO = 200;
+const double BLANK_STOP_LOSS_RATE = 0;
 
 
 
