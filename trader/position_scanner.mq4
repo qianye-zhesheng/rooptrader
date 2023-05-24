@@ -18,5 +18,15 @@ public:
       return position_list.GetSize();
    }
    
+   static bool ReachedBuyOrderLimit() {
+      PositionList position_list;
+      return position_list.BuyCountMinusSellCount() >= ACCEPTABLE_MAX_ORDER_DIFF;
+   }
+   
+   static bool ReachedSellOrderLimit() {
+      PositionList position_list;
+      return position_list.SellCountMinusBuyCount() >= ACCEPTABLE_MAX_ORDER_DIFF;
+   }
+
 
 };

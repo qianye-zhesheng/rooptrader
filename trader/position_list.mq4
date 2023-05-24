@@ -77,7 +77,13 @@ public:
       }
       return sell_count;
    }
-  
    
+   int BuyCountMinusSellCount() {
+      return GetBuyCount() - GetSellCount();
+   }
+   
+   int SellCountMinusBuyCount() {
+      return GetSellCount() - GetBuyCount();
+   }
 };
 
