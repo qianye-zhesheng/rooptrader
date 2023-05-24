@@ -58,7 +58,7 @@ int OnInit()
    
    reported_account_total = PerformanceReport::fetchInitialTotal();
    
-   EventSetTimer(ONE_HOUR);
+   EventSetTimer(ONE_MINUTE);
 
    return(INIT_SUCCEEDED);
   }
