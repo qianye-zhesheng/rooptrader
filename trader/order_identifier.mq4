@@ -24,6 +24,14 @@ public:
       return (int)MathFloor(identifier / TOTAL_DIGIT);
    }
    
+   static bool HasMatchedPrefix(int identifier) {
+      return OrderIdentifier::DecodePrefix(identifier) == ORDER_IDENTIFIER_PREFIX;
+   }
+   
+   static bool DoesNotHaveMatchedPrefix(int identifier) {
+      return !HasMatchedPrefix(identifier);
+   }
+   
 
 private:
    int GetIntegerBorder() {

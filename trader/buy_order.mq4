@@ -53,7 +53,7 @@ private:
    }
    
    bool ExistsSameBorderOrder() {
-      return OrderFinder::ExistsOrder(GetOrderIdentifier());
+      return PositionScanner::ExistsPosition(GetOrderIdentifier());
    }
    
    bool IsProfitLimitOnOrBelowCurrentPrice() {

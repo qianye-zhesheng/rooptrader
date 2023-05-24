@@ -91,7 +91,7 @@ void OnTick()
       return;
    }
    
-   if (OrderFinder::DoesExceedMaxPosition()) {
+   if (PositionScanner::ReachedMaxPosition()) {
       return;
    }
    
