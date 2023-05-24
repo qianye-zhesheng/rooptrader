@@ -7,8 +7,8 @@ private:
    OrderType order_type;
 
 public:
-   OrderLimiter(OrderType order_type_value) {
-      order_type = order_type_value;
+   OrderLimiter(const OrderType placing_order_type) {
+      order_type = placing_order_type;
    }
    
    bool IsFired() {

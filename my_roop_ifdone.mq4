@@ -99,7 +99,12 @@ void OnTick()
    
    if (border_crossing.HasHappened()) {
       Order* new_order = border_crossing.PrepareOrder();
-      new_order.Execute();
+      OrderResultType result = new_order.Execute();
+      
+      if (result == OrderResultType::LIMITED) {
+         Print("Order was not sent due to limitation");
+         SendNotification("Order was not sent due to limitation");
+      }
       delete new_order;
    }
    

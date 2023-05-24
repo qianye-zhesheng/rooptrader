@@ -15,6 +15,10 @@ public:
          return OrderResultType::SKIPPED;
       }
       
+      if (OrderLimiterFired()) {
+         return OrderResultType::LIMITED;
+      }
+      
       double stop_loss = GetStopLossRate();
       double profit_limit = GetProfitLimitRate();
       int identifier = GetOrderIdentifier();
@@ -36,6 +40,12 @@ public:
       return false;
    }
       
+   bool OrderLimiterFired() {
+      // Coding as "OrderLimiter order_limiter(OrderType::SELL)" causes a complie error.
+      OrderType order_type = OrderType::SELL;
+      OrderLimiter order_limiter(order_type);
+      return order_limiter.IsFired();
+   }
 
 private:
    double GetStopLossRate() {
