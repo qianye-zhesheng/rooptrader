@@ -28,10 +28,11 @@ public:
             continue;
          }
          
-         Position* position = new Position(identifier, OrderType());
+         // Fetch the original order type from the identifier because OrderType() returns the opposite type.       
+         Position* position = new Position(identifier, OrderIdentifier::DecodeOrderType(identifier));
          position_list[array_index] = position;
          array_index++;
-         
+                
          // Delete the pointer to avoid the memory leak.
          delete position;
       }

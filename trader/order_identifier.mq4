@@ -24,6 +24,13 @@ public:
       return (int)MathFloor(identifier / TOTAL_DIGIT);
    }
    
+   static OrderType DecodeOrderType(int identifier) {
+      const int order_type_value = 
+         (int)MathFloor((identifier - ORDER_IDENTIFIER_PREFIX * TOTAL_DIGIT) / ORDER_TYPE_DIGIT);
+         
+      return (OrderType)order_type_value;
+   }
+   
    static bool HasMatchedPrefix(int identifier) {
       return OrderIdentifier::DecodePrefix(identifier) == ORDER_IDENTIFIER_PREFIX;
    }
