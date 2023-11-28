@@ -10,6 +10,7 @@
 //---data storage
 bool trade_aborted = false;
 int reported_account_total = 0;
+NotifiedDateTime last_notified_time = NotifiedDateTime::OfEmpty();
 
 
 
@@ -102,9 +103,11 @@ void OnTick()
       OrderResultType result = new_order.Execute();
       
       if (result == OrderResultType::LIMITED) {
-         Print("Order was not sent due to limitation");
-         SendNotification("Order was not sent due to limitation");
+         OrderLimitationNotifier notifier(last_notified_time);
+         notifier.Notify();
+         last_notified_time = notifier.GetLastNotifiedTime();
       }
+
       delete new_order;
    }
    

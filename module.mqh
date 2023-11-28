@@ -8,3 +8,5 @@
 #include "trader/order.mq4"
 
 #include "validator/initializer.mq4"
+
+#include "notifier/notified_date_time.mq4"

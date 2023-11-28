@@ -1,6 +1,6 @@
 #property copyright "Qianye"
 #property link      "https://www.mql5.com"
-#property version   "4.00"
+#property version   "4.01"
 #property strict
 
 #include "common.mqh"
