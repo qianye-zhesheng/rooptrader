@@ -1,6 +1,7 @@
 #include "../base.mqh"
 
 #include "account_info.mq4"
+#include "report_schedule.mq4"
 
 
 class PerformanceReport {
@@ -42,23 +43,8 @@ private:
    }
    
    static bool IsTimeToSend() {
-      MqlDateTime date_time;
-      TimeToStruct(LocalTime(), date_time);
-      int current_hour = date_time.hour;
-      int current_minute = date_time.min;
-      
-      if (current_minute != REPORT_MINUTE) {
-         return false;
-      }
-      
-      for (int i = 0; i < ArraySize(REPORT_HOURS); i++) {
-         int hour = REPORT_HOURS[i];
-
-         if (hour == current_hour) {
-            return true;
-         }
-      }
-      return false;
+      ReportSchedule report_schedule();
+      return report_schedule.IsScheduledTime();
    }
    
 };

@@ -22,8 +22,6 @@ input int ACCEPTABLE_MAX_ORDER_DIFF;
 //---preset values
 const double DEFAULT_LOT = 0.01;
 const int DEFAULT_SLIPPAGE = 3;
-const int REPORT_HOURS[] = {7, 12, 17, 21};
-const int REPORT_MINUTE = 5;
 const int ONE_MINUTE = 60;
 const double MIN_ACCEPTABLE_MARGIN_RATIO = 200;
 const double BLANK_STOP_LOSS_RATE = 0;
