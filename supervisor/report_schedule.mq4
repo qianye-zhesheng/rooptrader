@@ -6,6 +6,7 @@ private:
 
    static const int REPORT_HOURS[];
    static const int REPORT_MINUTE;
+   static const int NOON;
    
    int current_day_of_week;
    int current_hour;
@@ -23,6 +24,10 @@ public:
    bool IsScheduledTime() {
    
       if (IsNotReportMinute()) {
+         return false;
+      }
+      
+      if (IsWeekend()) {
          return false;
       }
       
@@ -47,8 +52,25 @@ private:
       return false;
    }
    
+   bool IsWeekend() {
+      return IsSaturdayAfternoon() || IsSunday();
+   }
+   
+   bool IsSunday() {
+      return current_day_of_week == SUNDAY;
+   }
+   
+   bool IsSaturdayAfternoon() {
+      if (current_day_of_week != SATURDAY) {
+         return false;
+      }
+      
+      return current_hour >= NOON;
+   }
+   
 };
 
 
 const int ReportSchedule::REPORT_HOURS[] = {7, 12, 17, 21};
 const int ReportSchedule::REPORT_MINUTE = 5;
+const int ReportSchedule::NOON = 12;
